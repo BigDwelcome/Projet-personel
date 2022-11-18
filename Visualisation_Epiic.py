@@ -13,3 +13,7 @@ import seaborn as sns
 ####### import database
 df= pd.read_excel("Étude d’opinion Xylos (réponses).xlsx")
 
+### visualisation de df
+# la base est elle complète # oui la base n'est pas complète
+sns.heatmap(df.isna())
+##créer une boucle pour supprimer les variables libres
