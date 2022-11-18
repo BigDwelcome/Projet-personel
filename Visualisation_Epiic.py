@@ -10,10 +10,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-####### import database
+########### import database
 df= pd.read_excel("Étude d’opinion Xylos (réponses).xlsx")
+##### 1.exploratory data
+##Objectif
+#Compréhension des données
 
-### visualisation de df
-# la base est elle complète # oui la base n'est pas complète
-sns.heatmap(df.isna())
-##créer une boucle pour supprimer les variables libres
+# taille des données : (353, 27) 
+df.shape
+# types de données
+df.dtypes.value_counts()
+##object            22
+##float64            4
+##datetime64[ns]     1
+
+# Visualisation de la base de donné 
+sns.heatmap(df.isna(), cbar=False)
+# suppression des variables inutiles
+
+(df.isna().sum()/df.shape[0]).sort_values(ascending=True)
+
